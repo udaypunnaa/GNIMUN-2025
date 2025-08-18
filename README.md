@@ -1,4 +1,4 @@
-# CNIMUN Conference Landing Page
+# GNIMUN Conference Landing Page
 
 A modern, responsive landing page for the CNIMUN (Conference Name) conference with a futuristic dark theme design.
 
