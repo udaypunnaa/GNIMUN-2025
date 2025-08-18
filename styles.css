@@ -466,7 +466,7 @@ h6 {
 /* Secretariat Section */
 .secretariat {
     padding: 6rem 0;
-    background: #1C1C2B;
+    background: #000000;
 }
 
 .secretariat-grid {
@@ -476,7 +476,7 @@ h6 {
 }
 
 .secretariat-card {
-    background: #0A0A14;
+    background: #ffffff;
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
@@ -490,11 +490,11 @@ h6 {
 
 .secretariat-image {
     width: 150px;
-    height: 150px;
+    height: 200px;
     margin: 0 auto 1.5rem;
-    border-radius: 50%;
+    border-radius: 10%;
     overflow: hidden;
-    border: 3px solid #0057FF;
+    border: 3px solid #000000;
 }
 
 .secretariat-image img {
@@ -516,7 +516,7 @@ h6 {
 /* Why Attend Section */
 .why-attend {
     padding: 6rem 0;
-    background: #0A0A14;
+    background: #000000;
 }
 
 .features-grid {
@@ -526,11 +526,11 @@ h6 {
 }
 
 .feature-card {
-    background: #1C1C2B;
+    background: #1C1A1A;
     padding: 2rem;
     border-radius: 16px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0);
     transition: all 0.3s ease;
 }
 
