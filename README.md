@@ -204,4 +204,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-**Built with ❤️ for CNIMUN Conference** 
+**Built with ❤️ for GNIMUN Conference** 
