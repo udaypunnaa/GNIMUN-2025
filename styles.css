@@ -36,7 +36,11 @@ h6 {
 }
 
 .section-title {
-    font-size: clamp(3rem, 5vw, 8rem);
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: clamp(3rem, 4vw, 8rem);
     text-align: left;
     margin-bottom: 3rem;
     background: linear-gradient(135deg, #FFFFFF 0%, #0057FF 100%);
@@ -571,10 +575,10 @@ h6 {
     /* makes the gradient visible */
     color: transparent;
     padding-bottom: 0;
-    font-size: 30vh;
+    font-size: 25vh;
     text-align: right;
     font-family: 'Syne';
-    height: 225px;
+    height: 190px;
 }
 
 #number-2 {
@@ -606,7 +610,7 @@ h6 {
 /* Who Is It For Section */
 .who-for {
     padding: 6rem 0;
-    background: #1C1C2B;
+    background: #000000;
 }
 
 .who-for-grid {
@@ -643,15 +647,22 @@ h6 {
 /* Countdown Section */
 .countdown {
     padding: 6rem 0;
-    background: #0A0A14;
+    background: #000000;
     text-align: center;
 }
 
 .countdown-timer {
+    background-color: #1C1A1A;
+    padding: 10rem;
+    border-radius: 2rem;
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
     margin-bottom: 3rem;
+    background-image: url('Topology-1.png');
+    background-repeat: no-repeat;
+    background-size: 30vh;
+    background-position: bottom left;
 }
 
 .countdown-item {
@@ -659,11 +670,13 @@ h6 {
 }
 
 .countdown-number {
-    display: block;
-    font-size: 3rem;
+    font-size: 9rem;
+    font-family: 'Syne';
     font-weight: 700;
-    color: #0057FF;
+    color: #ffffff;
     line-height: 1;
+    position: relative;
+    display: inline-block;
 }
 
 .countdown-label {
@@ -673,6 +686,16 @@ h6 {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 0.5rem;
+}
+
+.countdown-item:nth-child(1) .countdown-number::after,
+.countdown-item:nth-child(2) .countdown-number::after {
+    content: ":";
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    margin-left: 0.3rem;
+    /* spacing */
 }
 
 /* Pricing Section */
@@ -1033,4 +1056,148 @@ h6 {
 .scroll-animate.animate {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Section Base */
+.who-for {
+    padding: 1rem;
+    background: #000;
+    color: #fff;
+    text-align: left;
+    position: left;
+    overflow: hidden;
+}
+
+.who-for-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Navigation buttons */
+.who-for-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.who-for-nav button {
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-prev {
+    background: #555;
+    /* grey */
+}
+
+.btn-next {
+    background: #0057FF;
+    /* blue */
+}
+
+/* Card Wrapper */
+.who-for-grid {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 300px;
+}
+
+/* Card Base */
+.who-for-card {
+    font-family: "Syne";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 300px;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.4s ease-in-out;
+    opacity: 0;
+    transform: scale(0.9);
+    z-index: 0;
+    background: #1c1c1c;
+    color: #ccc;
+}
+
+.who-for-card h3 {
+    font-family: "Syne";
+    font-size: 20px;
+    font-weight: 700;
+
+}
+
+.who-for-card p {
+    font-family: "Syne";
+    font-size: 15px;
+    font-weight: 400;
+
+}
+
+/* Prev Card */
+.who-for-card.prev {
+    background: #2e2e2e;
+    color: #aaa;
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+}
+
+/* Active Card */
+.who-for-card.active {
+    left: 30%;
+    /* overlap horizontally */
+    background: #0057FF;
+    color: #fff;
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Next Card */
+.who-for-card.next {
+    left: 76%;
+    background: #fff;
+    color: #0A0A14;
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1);
+}
+
+/* ✅ Mobile Version: vertical overlap */
+@media (max-width: 768px) {
+    .who-for-card {
+        position: relative;
+        width: 100%;
+        left: auto !important;
+        /* remove horizontal shift */
+        top: auto;
+        opacity: 1 !important;
+        transform: scale(1) !important;
+        margin: 0 auto;
+    }
+
+    .who-for-card.prev {
+        margin-bottom: -30%;
+        /* overlap straight vertically */
+        z-index: 1;
+    }
+
+    .who-for-card.active {
+        margin-bottom: 1.5rem;
+        z-index: 2;
+    }
+
+    .who-for-card.next {
+        margin-top: 0;
+        z-index: 0;
+    }
 }

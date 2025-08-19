@@ -242,4 +242,34 @@ document.addEventListener('DOMContentLoaded', function () {
     updateCountdown();
     // Update every second (for demo purposes)
     setInterval(updateCountdown, 1000);
-}); 
+});
+const cards = document.querySelectorAll(".who-for-card");
+let currentIndex = 1; // start with 2nd card as active
+
+function updateCards() {
+    cards.forEach((card, index) => {
+        card.classList.remove("prev", "active", "next");
+
+        if (index === currentIndex) {
+            card.classList.add("active");
+        } else if (index === currentIndex - 1) {
+            card.classList.add("prev");
+        } else if (index === currentIndex + 1) {
+            card.classList.add("next");
+        }
+    });
+}
+
+// Buttons
+document.getElementById("nextBtn").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % cards.length;
+    updateCards();
+});
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    updateCards();
+});
+
+// Init
+updateCards();
