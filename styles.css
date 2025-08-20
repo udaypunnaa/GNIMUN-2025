@@ -66,9 +66,10 @@ h6 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #c8cedb 0%, #0040CC 100%);
+    border-radius: 50px;
+    background: white;
     color: #000000;
-    box-shadow: 0 4px 15px rgba(0, 87, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-primary:hover {
@@ -90,15 +91,16 @@ h6 {
 }
 
 .btn-outline {
-    background: transparent;
-    color: #FFFFFF;
+    border-radius: 50px;
+    background: white;
+    color: #000000;
     border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-outline:hover {
-    background: #FFFFFF;
-    color: #0A0A14;
-    border-color: #FFFFFF;
+    background: #000000;
+    color: #ffffff;
+    border-color: #000000;
 }
 
 /* Header & Navigation */
@@ -670,7 +672,7 @@ h6 {
 }
 
 .countdown-number {
-    font-size: 9rem;
+    font-size: 20vh;
     font-family: 'Syne';
     font-weight: 700;
     color: #ffffff;
@@ -688,20 +690,30 @@ h6 {
     margin-top: 0.5rem;
 }
 
-.countdown-item:nth-child(1) .countdown-number::after,
-.countdown-item:nth-child(2) .countdown-number::after {
-    content: ":";
-    font-size: inherit;
-    font-weight: inherit;
-    color: inherit;
-    margin-left: 0.3rem;
-    /* spacing */
+@media (min-width:768px) {
+
+    .countdown-item:nth-child(1) .countdown-number::after,
+    .countdown-item:nth-child(2) .countdown-number::after {
+        content: ":";
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        margin-left: 0.3rem;
+        /* spacing */
+    }
+}
+
+#section-title-1 {
+    font-family: "Syne";
+    font: weight 700px;
+    font-size: 8vh;
+    margin-bottom: 2rem;
 }
 
 /* Pricing Section */
 .pricing {
     padding: 6rem 0;
-    background: #1C1C2B;
+    background: #000000;
 }
 
 .pricing-grid {
@@ -711,18 +723,27 @@ h6 {
 }
 
 .pricing-card {
-    background: #0A0A14;
     padding: 2.5rem;
-    border-radius: 16px;
+    border-radius: 50px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 
+.prev {
+    background-color: #0057FF;
+}
+
+.prev h3 {
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-family: 'Syne';
+}
+
 .pricing-card-featured {
-    border-color: #0057FF;
+    border-color: #000000;
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 87, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pricing-card:hover {
@@ -730,7 +751,8 @@ h6 {
 }
 
 .pricing-card h3 {
-    color: #0057FF;
+    font-family: 'Syne';
+    text-align: left;
     margin-bottom: 1rem;
     font-size: 1.2rem;
 }
@@ -760,20 +782,30 @@ h6 {
 /* Contact Section */
 .contact {
     padding: 6rem 0;
-    background: #0A0A14;
+    background: #000000;
+}
+
+.outer {
+    background-color: #1A1A1A;
+    padding: 4rem;
+    border-radius: 50px;
+}
+
+.outer h3 {
+    margin-bottom: 2rem;
 }
 
 .contact-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background: #1C1C2B;
-    border-radius: 16px;
+    gap: 3px;
+    background: #fefefe;
+    border-radius: 50px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0);
 }
 
 .contact-image {
-    position: relative;
     background: linear-gradient(135deg, #0057FF 0%, #0040CC 100%);
 }
 
