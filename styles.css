@@ -200,10 +200,9 @@ h6 {
     margin: 1rem;
     height: 90vh;
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+        url('background1.png');
     background-size: cover;
     background-position: center;
-    filter: grayscale();
     filter: contrast(-10);
     display: flex;
     align-items: center;
@@ -214,6 +213,60 @@ h6 {
     border-top-right-radius: 5rem;
     overflow: hidden;
 }
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    min-height: 100vh;
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h1 {
+    text-align: left;
+    font-family: 'Syne';
+    font-weight: 700;
+    font-size: 13vh;
+}
+
+.hero-globe {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.globe {
+    margin-top: 10vh;
+    margin-left: 50%;
+    width: 100%;
+    /* take full width of parent */
+    max-width: 120vh;
+    /* don’t grow too big */
+    aspect-ratio: 1 / 1;
+    /* always stay square */
+    border-radius: 50%;
+    /* makes it a circle */
+    object-fit: cover;
+    animation: spin 20s linear infinite;
+    transform-origin: center center;
+    /* rotate around center */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 
 .hero-overlay {
     position: absolute;
