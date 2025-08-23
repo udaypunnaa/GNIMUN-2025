@@ -230,7 +230,7 @@ h6 {
     text-align: left;
     font-family: 'Syne';
     font-weight: 700;
-    font-size: 13vh;
+    font-size: 7vh;
 }
 
 .hero-globe {
@@ -864,6 +864,7 @@ h6 {
     margin-top: 1.5rem;
     width: 100%;
     height: 60vh;
+    border-radius: 50px;
 }
 
 .contact-image {
