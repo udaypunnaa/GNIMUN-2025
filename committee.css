@@ -620,3 +620,12 @@ footer {
         font-size: 1.5vh;
     }
 }
+
+/*Secretrait and schedule css*/
+#soon{
+    background-color: #0057ff;
+    padding: 20vh;
+    border-radius: 50px;
+    margin: 2vh;
+    margin-top: 19vh;
+}

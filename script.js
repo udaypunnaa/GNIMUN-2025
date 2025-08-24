@@ -273,3 +273,35 @@ document.getElementById("prevBtn").addEventListener("click", () => {
 
 // Init
 updateCards();
+
+
+const targetDate = new Date("October 10, 2025 00:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+        document.querySelector(".countdown-timer").innerHTML =
+            "<h3>Registration Closed</h3>";
+        return;
+    }
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Update DOM
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+}
+
+// Update immediately + every second
+updateCountdown();
+setInterval(updateCountdown, 1000);

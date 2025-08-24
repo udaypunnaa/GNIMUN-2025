@@ -23,6 +23,11 @@ body {
     padding: 0 20px;
 }
 
+.price p {
+    font-size: 2vh;
+    font-weight: 500;
+}
+
 /* Typography */
 h1,
 h2,
@@ -220,6 +225,7 @@ h6 {
     align-items: center;
     padding: 50px;
     min-height: 100vh;
+    text-align: left;
 }
 
 .hero-content {
@@ -1305,6 +1311,12 @@ h6 {
         margin-top: 0;
         z-index: 0;
     }
+
+    .globe {
+        margin-top: 30vh;
+        width: 50vh;
+        margin-right: 60%;
+    }
 }
 
 footer {
@@ -1441,12 +1453,16 @@ footer {
 
 .social {
     margin-top: 2rem;
+    display: flex;
+    /* makes children (a) flex items */
+    gap: 1rem;
 }
 
 .social a {
     color: white;
     font-size: 22px;
     text-decoration: none;
+    gap: 4rem;
 }
 
 /* Tablet & Desktop */
@@ -1460,4 +1476,6 @@ footer {
     .footer-right {
         flex: 1;
     }
+
+
 }

@@ -44,16 +44,13 @@
                             <a href="#agenda" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#agenda" class="nav-link">Schedule</a>
+                            <a href="#" class="nav-link">Schedule</a>
                         </li>
                         <li class="nav-item">
                             <a href="#agenda" class="nav-link">Committee</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#secretariat" class="nav-link">Venue</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#register" class="nav-link">Secretariat</a>
+                            <a href="#secretariat" class="nav-link">Secretariat</a>
                         </li>
                     </ul>
                     <button class="nav-btn">Register Now</button>
@@ -169,7 +166,7 @@
                 <!-- Secretary General -->
                 <div class="secretariat-card secretariat-details">
                     <h3>Secretary General</h3>
-                    <p>John Doe</p>
+                    <p>Krithi Bhasker</p>
                 </div>
                 <div class="secretariat-card secretariat-photo">
                     <div class="secretariat-image">
@@ -180,7 +177,7 @@
                 <!-- Deputy Secretary General -->
                 <div class="secretariat-card secretariat-details">
                     <h3>Deputy Secretary General</h3>
-                    <p>Jane Smith</p>
+                    <p>Aditya Kiran Varanasi</p>
                 </div>
                 <div class="secretariat-card secretariat-photo">
                     <div class="secretariat-image">
@@ -191,8 +188,8 @@
 
                 <!-- Under Secretary General -->
                 <div class="secretariat-card secretariat-details">
-                    <h3>Under Secretary General</h3>
-                    <p>Mike Johnson</p>
+                    <h3>Director of Tech & Design</h3>
+                    <p>Sahithi Aele</p>
                 </div>
                 <div class="secretariat-card secretariat-photo">
                     <div class="secretariat-image">
@@ -203,8 +200,8 @@
 
                 <!-- Director -->
                 <div class="secretariat-card secretariat-details">
-                    <h3>Director</h3>
-                    <p>Sarah Wilson</p>
+                    <h3>Director of Logistics & Operations</h3>
+                    <p>Tharun Teja</p>
                 </div>
                 <div class="secretariat-card secretariat-photo">
                     <div class="secretariat-image">
@@ -285,20 +282,26 @@
     <section class="countdown" id="register">
         <div class="container">
             <h2 class="section-title">REGISTER NOW</h2>
+
             <div class="countdown-timer">
                 <div class="countdown-item">
-                    <span class="countdown-number">12</span>
+                    <span id="days" class="countdown-number">00</span>
                     <span class="countdown-label">Days</span>
                 </div>
                 <div class="countdown-item">
-                    <span class="countdown-number">05</span>
+                    <span id="hours" class="countdown-number">00</span>
                     <span class="countdown-label">Hours</span>
                 </div>
                 <div class="countdown-item">
-                    <span class="countdown-number">30</span>
+                    <span id="minutes" class="countdown-number">00</span>
                     <span class="countdown-label">Minutes</span>
                 </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-number">00</span>
+                    <span class="countdown-label">Seconds</span>
+                </div>
             </div>
+
             <button class="btn btn-primary">Register Now</button>
         </div>
     </section>
@@ -309,8 +312,9 @@
             <h2 id="section-title-1">Ticket Options</h2>
             <div class="pricing-grid">
                 <div class="pricing-card prev">
-                    <h3>Early Bird Pass</h3>
-                    <div class="price">₹500</div>
+                    <h3>GNI Students</h3>
+                    <div class="price">₹1200 <p>per delegates</p>
+                    </div>
                     <ul class="pricing-features">
                         <li>Individual participation</li>
                         <li>Early registration discount</li>
@@ -320,8 +324,9 @@
                     <button class="btn btn-outline">Get your Ticket <i class="bi bi-arrow-up-right"></i></button>
                 </div>
                 <div class="pricing-card pricing-card-featured">
-                    <h3>Standard Pass</h3>
-                    <div class="price">₹1500</div>
+                    <h3>Group Registrations</h3>
+                    <div class="price">₹1499 <p>per delegates</p>
+                    </div>
                     <ul class="pricing-features">
                         <li>Team of 3-5 delegates</li>
                         <li>Early registration discount</li>
@@ -332,8 +337,9 @@
                     <button class="btn btn-primary">Register</button>
                 </div>
                 <div class="pricing-card next">
-                    <h3>VIP Experience</h3>
-                    <div class="price">₹2000</div>
+                    <h3>Non-GNI Participants</h3>
+                    <div class="price">₹1699 <p>per delegates</p>
+                    </div>
                     <ul class="pricing-features">
                         <li>Team of 3-5 delegates</li>
                         <li>Standard registration</li>
@@ -400,14 +406,13 @@
         <!-- Left Section -->
         <div class="footer-left">
             <div>
-                <h2>GNIMUN 2052</h2>
+                <h2>GNIMUN 2025</h2>
                 <div class="footer-links">
                     <ul>
-                        <li><a href="#">Agenda</a></li>
-                        <li><a href="#">Speakers</a></li>
-                        <li><a href="#">Register</a></li>
-                        <li><a href="#">Venue</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Committee</a></li>
+                        <li><a href="#">Secretariat</a></li>
                     </ul>
                     <ul>
                         <li><a href="#">Terms & Conditions</a></li>
@@ -415,7 +420,7 @@
                     </ul>
                 </div>
             </div>
-            <p>© 2052 GNIMUN. All rights reserved.</p>
+            <p>© 2025 GNIMUN. All rights reserved.</p>
         </div>
 
         <!-- Right Section -->
@@ -430,7 +435,9 @@
             </div>
             <div class="social">
                 <h3>FOLLOW US</h3>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.instagram.com/gnimunhyd/"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.linkedin.com/company/gnimun-guru-nanak-institutions-model-united-nations/"><i
+                        class="fab fa-linkedin"></i> LinkedIn</a>
             </div>
         </div>
     </footer>
