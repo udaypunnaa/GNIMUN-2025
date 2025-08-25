@@ -752,7 +752,8 @@ h6 {
 @media (min-width:768px) {
 
     .countdown-item:nth-child(1) .countdown-number::after,
-    .countdown-item:nth-child(2) .countdown-number::after {
+    .countdown-item:nth-child(2) .countdown-number::after,
+    .countdown-item:nth-child(3) .countdown-number::after {
         content: ":";
         font-size: inherit;
         font-weight: inherit;
