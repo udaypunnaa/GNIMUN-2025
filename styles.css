@@ -989,9 +989,10 @@ h6 {
         top: 100%;
         left: 0;
         width: 100%;
-        background: rgba(10, 10, 20, 0.95);
+        background: rgba(0, 0, 0, 0.95);
         backdrop-filter: blur(10px);
         flex-direction: column;
+        border-radius: 50px;
         padding: 2rem;
         transform: translateY(-100%);
         opacity: 0;
@@ -1460,9 +1461,9 @@ footer {
 
 .social a {
     color: white;
-    font-size: 22px;
+    font-size: 2vh;
     text-decoration: none;
-    gap: 4rem;
+    gap: em;
 }
 
 /* Tablet & Desktop */
