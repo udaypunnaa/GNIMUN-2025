@@ -288,6 +288,39 @@ h6 {
     z-index: 2;
 }
 
+#register-here {
+    outline: 0;
+    margin-top: 1.5rem;
+    border-radius: 50px;
+    color: white;
+    align-items: center;
+    background: 0 0;
+    border: 1px solid #2e1cd6;
+    cursor: pointer;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: 16px;
+    gap: 8px;
+    justify-content: center;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 12px 16px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    transition: all .14s ease-out;
+    white-space: nowrap;
+
+}
+
+#register-here:hover {
+    box-shadow: 4px 4px 0 #2e1cd6;
+    transform: translate(-4px, -4px);
+}
+
+#register-here:focus-visible {
+    outline-offset: 1px;
+}
+
 .hero-title {
     font-size: 4rem;
     margin-bottom: 1rem;
@@ -533,13 +566,15 @@ h6 {
 .secretariat {
     padding: 6rem 0;
     background: #000000;
+    transform: none;
 }
 
 .secretariat-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     gap: 1.5rem;
     align-items: stretch;
+    transform: none;
 }
 
 .secretariat-card {
@@ -547,7 +582,7 @@ h6 {
     padding: 1.5rem;
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s ease;
+    transform: none !important;
 }
 
 .secretariat-details {
@@ -555,41 +590,59 @@ h6 {
     flex-direction: column;
     justify-content: center;
     background-color: white;
+    transform: none;
 }
 
 .secretariat-photo {
     display: flex;
+    object-fit: cover;
     align-items: center;
     justify-content: center;
-}
-
-.secretariat-card:hover {
-    transform: translateY(-5px);
+    transform: none;
 }
 
 .secretariat-image {
     width: 100%;
-    max-width: 300px;
-    height: 400px;
+    height: 450px;
+    aspect-ratio: 6 / 16;
+    object-fit: cover;
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid rgba(255, 255, 255, 0.1);
+    transform: none;
 }
 
 .secretariat-image img {
     width: 100%;
+    aspect-ratio: 6 / 16;
     height: 100%;
     object-fit: cover;
+    filter: grayscale(30);
+    transform: none;
+}
+
+.secretariat-image img:hover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0);
+    transform: none !important;
+}
+
+#message {
+    font-size: 1.5vh;
 }
 
 .secretariat-card h3 {
     color: #000000;
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
+    transform: none;
 }
 
-.secretariat-card p {
+.secretariat-card {
     color: #000000;
+    transform: none;
 }
 
 @media (max-width: 768px) {
@@ -710,20 +763,28 @@ h6 {
     padding: 6rem 0;
     background: #000000;
     text-align: center;
+
 }
 
 .countdown-timer {
     background-color: #1C1A1A;
-    padding: 10rem;
+    padding: 3rem 1rem;
+    /* reduced padding for small screens */
     border-radius: 2rem;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* allow wrapping on mobile */
     gap: 1rem;
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
+    /* center container */
     background-image: url('Topology-1.png');
     background-repeat: no-repeat;
     background-size: 30vh;
     background-position: bottom left;
+    max-width: 100%;
+    /* prevents overflow */
 }
 
 .countdown-item {
@@ -749,6 +810,10 @@ h6 {
     margin-top: 0.5rem;
 }
 
+#seconds-label {
+    padding-bottom: 5rem;
+}
+
 @media (min-width:768px) {
 
     .countdown-item:nth-child(1) .countdown-number::after,
@@ -764,6 +829,13 @@ h6 {
 }
 
 #section-title-1 {
+    font-family: "Syne";
+    font: weight 700px;
+    font-size: 8vh;
+    margin-bottom: 2rem;
+}
+
+#section-title-2 {
     font-family: "Syne";
     font: weight 700px;
     font-size: 8vh;
@@ -840,99 +912,6 @@ h6 {
 }
 
 /* Contact Section */
-.contact {
-    padding: 6rem 0;
-    background: #000000;
-}
-
-.outer {
-    background-color: #1A1A1A;
-    padding: 4rem;
-    border-radius: 50px;
-}
-
-.outer h3 {
-    margin-bottom: 2rem;
-
-}
-
-.contact-card {
-    margin-top: 0.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3px;
-    background: #fefefe;
-    border-radius: 50px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0);
-}
-
-#location {
-    margin-top: 1.5rem;
-    width: 100%;
-    height: 60vh;
-    border-radius: 50px;
-}
-
-.contact-image {
-    background: linear-gradient(135deg, #1A1A1A 0%, #1A1A1A 100%);
-    border-radius: 50px;
-    width: 100%;
-    padding: 2rem;
-    font-family: 'Syne';
-    font-weight: 600;
-    font-size: x-large;
-}
-
-.contact-image p {
-    font-size: 2vh;
-    font-weight: 500;
-}
-
-.contact-bg {
-    width: 100%;
-    height: 100%;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-    opacity: 0.3;
-}
-
-.contact-form {
-    padding: 3rem;
-}
-
-.contact-form h2 {
-    color: #0057FF;
-    margin-bottom: 2rem;
-    text-align: center;
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: #FFFFFF;
-    font-family: 'Poppins', sans-serif;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #0057FF;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #A9A9B8;
-}
 
 /* Footer */
 .footer {
