@@ -680,8 +680,28 @@ h6 {
     transition: all 0.3s ease;
 }
 
+@media (min-width:768px) {
+    .feature-card h1 {
+        background: linear-gradient(to bottom, #0147FF 75%, #FFFFFF 100%);
+        font-size: 20vh;
+    }
+
+    #number-2 {
+        text-align: left;
+
+    }
+
+    #number-3 {
+        text-align: right;
+    }
+
+    #number-4 {
+        text-align: left;
+    }
+}
+
 .feature-card h1 {
-    background: linear-gradient(to bottom, #0147FF 75%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #0147FF 60%, #FFFFFF 100%);
     -webkit-background-clip: text;
     /* for Chrome, Safari */
     background-clip: text;
@@ -810,15 +830,17 @@ h6 {
     margin-top: 0.5rem;
 }
 
-#seconds-label {
-    padding-bottom: 5rem;
+@media (max-width: 768px) {
+    #seconds-label {
+        padding-bottom: 5rem;
+    }
 }
+
 
 @media (min-width:768px) {
 
     .countdown-item:nth-child(1) .countdown-number::after,
-    .countdown-item:nth-child(2) .countdown-number::after,
-    .countdown-item:nth-child(3) .countdown-number::after {
+    .countdown-item:nth-child(2) .countdown-number::after {
         content: ":";
         font-size: inherit;
         font-weight: inherit;
