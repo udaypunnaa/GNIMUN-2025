@@ -120,7 +120,7 @@ h6 {
 }
 
 .header.scrolled {
-    background: rgba(224, 224, 233, 0);
+    background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 87, 255, 0.2);
 }
@@ -148,6 +148,7 @@ h6 {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 2px;
+
 }
 
 .nav-menu {
@@ -160,6 +161,7 @@ h6 {
     display: flex;
     list-style: none;
     gap: 2rem;
+    text-align: center;
 }
 
 .nav-link {
@@ -201,67 +203,120 @@ h6 {
 
 /* Hero Section */
 .hero {
-    top: 7rem;
-    margin: 1rem;
-    height: 90vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('background1.png');
+    margin-top: 15vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    padding: 50px 20px;
+    min-height: 120vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/background1.png');
     background-size: cover;
     background-position: center;
-    filter: contrast(-10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
-    overflow: hidden;
+
 }
 
-.hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    min-height: 100vh;
-    text-align: left;
-}
-
+/* move the whole content slightly up without breaking centering */
 .hero-content {
-    max-width: 50%;
+    margin-top: -20vh;
+    max-width: 900px;
+    text-align: center;
+    transform: translateY(-8vh);
+    /* <-- change this value to move all content up/down */
 }
 
+/* logo styling: centered, smaller, and easily nudged */
+.hero-logo {
+    margin-top: -vh;
+    width: 500px;
+    /* reasonable default; change as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto 12px;
+    margin-bottom: 0px;
+    top: -50px;
+    /* small upward nudge for the logo only */
+    position: relative;
+    /* required for transform/top adjustments to take effect */
+}
+
+/* text sizes */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* always fill screen */
+    text-align: center;
+    padding: 0 5%;
+}
+
+/* Small heading */
+.hero-content h5 {
+    font-size: clamp(12px, 2vw, 18px);
+    margin: 0 0 10px 0;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+#texts {
+    margin-top: -15.5vh;
+}
+
+/* Main heading */
 .hero-content h1 {
-    text-align: left;
     font-family: 'Syne';
     font-weight: 700;
-    font-size: 7vh;
+    font-size: clamp(32px, 8vw, 80px);
+    /* scales with screen */
+    margin: 6px 0 10px 0;
+    color: #fff;
 }
 
-.hero-globe {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Subheading */
+.hero-content h2 {
+    font-size: clamp(14px, 2.5vw, 20px);
+    line-height: 1.5;
+    margin: 0 0 18px 0;
+    color: #fff;
 }
 
-.globe {
-    margin-top: 10vh;
-    margin-left: 50%;
-    width: 100%;
-    /* take full width of parent */
-    max-width: 120vh;
-    /* don’t grow too big */
-    aspect-ratio: 1 / 1;
-    /* always stay square */
-    border-radius: 50%;
-    /* makes it a circle */
-    object-fit: cover;
-    animation: spin 20s linear infinite;
-    transform-origin: center center;
-    /* rotate around center */
+/* Extra small devices adjustments */
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: clamp(28px, 9vw, 60px);
+    }
+
+    .hero-content h2 {
+        font-size: clamp(12px, 3vw, 18px);
+    }
 }
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+    .hero-content {
+        transform: translateY(-4vh);
+    }
+
+    .hero-logo {
+        width: 250px;
+        transform: translateY(-10px);
+        margin-top: -20px;
+    }
+
+    .hero-content h1 {
+        font-size: 14vw;
+    }
+
+    /* scales down neatly on phones */
+}
+
+
 
 @keyframes spin {
     from {
@@ -683,7 +738,7 @@ h6 {
 @media (min-width:768px) {
     .feature-card h1 {
         background: linear-gradient(to bottom, #0147FF 75%, #FFFFFF 100%);
-        font-size: 20vh;
+        font-size: 19vh;
     }
 
     #number-2 {
@@ -701,7 +756,7 @@ h6 {
 }
 
 .feature-card h1 {
-    background: linear-gradient(to bottom, #0147FF 60%, #FFFFFF 100%);
+    background: linear-gradient(to bottom, #0147FF 58%, #FFFFFF 100%);
     -webkit-background-clip: text;
     /* for Chrome, Safari */
     background-clip: text;
@@ -709,7 +764,7 @@ h6 {
     /* makes the gradient visible */
     color: transparent;
     padding-bottom: 0;
-    font-size: 25vh;
+    font-size: 19vh;
     text-align: right;
     font-family: 'Syne';
     height: 190px;
@@ -925,7 +980,7 @@ h6 {
 
 .pricing-features li {
     padding: 0.5rem 0;
-    color: #A9A9B8;
+    color: #FFFFFF;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -1339,14 +1394,14 @@ footer {
 
 /* Left Section */
 .footer-left {
-    background: #e5e5e5;
+    background: #0057ff;
     padding: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Syne';
     font-weight: 500;
-    color: black;
+    color: white;
 }
 
 .footer-left h2 {
@@ -1354,7 +1409,7 @@ footer {
     margin-bottom: 1.5rem;
     font-family: 'Syne';
     font-weight: 700;
-    color: black;
+    color: white;
 }
 
 .footer-links {
@@ -1370,7 +1425,7 @@ footer {
 }
 
 .footer-links a {
-    color: #222;
+    color: white;
     text-decoration: none;
     display: block;
     margin-bottom: 0.5rem;
@@ -1383,7 +1438,7 @@ footer {
 
 .footer-left p {
     font-size: 12px;
-    color: #555;
+    color: white;
     margin-top: 2rem;
 }
 
@@ -1397,7 +1452,6 @@ footer {
     justify-content: space-between;
     font-family: 'Syne';
     font-weight: 500;
-    color: white;
 }
 
 .footer-right h3 {
@@ -1447,11 +1501,10 @@ footer {
     cursor: pointer;
     font-family: 'Syne';
     font-weight: 500;
-    color: black;
 }
 
 .footer-right button:hover {
-    background: #f0f0f0;
+    background: #ffffff;
 }
 
 .social {
@@ -1480,5 +1533,231 @@ footer {
         flex: 1;
     }
 
+    .social a {
+        color: white;
+    }
 
+
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+    background: #0057ff;
+    color: #fff;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+    flex: 1;
+    margin: 10px;
+    min-width: 250px;
+}
+
+/* Links */
+.footer-links {
+    display: flex;
+    gap: 40px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-links a:hover {
+    color: #fff;
+}
+
+/* Countdown */
+.footer-middle {
+    text-align: center;
+}
+
+/* Countdown Section */
+#countdown {
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    /* allows wrapping on small screens */
+}
+
+#countdown div {
+    background: #1c1c1c;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-align: center;
+    min-width: 60px;
+    flex: 1 1 70px;
+    /* makes blocks shrink/expand */
+}
+
+#countdown span {
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    color: #f4f4f4;
+}
+
+#countdown p {
+    margin: 0;
+    font-size: 12px;
+    color: #bbb;
+}
+
+/* Right section */
+.footer-right form {
+    display: flex;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    /* make input+button stack on small screens */
+}
+
+.footer-right input {
+    padding: 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-right button {
+    padding: 8px 12px;
+    border: none;
+    background: #ffffff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.footer-right button:hover {
+    background: #000000;
+    color: white;
+}
+
+.social a {
+    display: block;
+    margin: 5px 0;
+    color: #bbb;
+    text-decoration: none;
+}
+
+.social a:hover {
+    color: #fff;
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+    #countdown {
+        padding: 1rem;
+        gap: 10px;
+    }
+
+    #countdown span {
+        font-size: 20px;
+    }
+
+    #countdown p {
+        font-size: 11px;
+    }
+
+    .footer-right form {
+        flex-direction: column;
+    }
+
+    .footer-right input {
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .footer-right button {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .social a {
+        color: white;
+    }
+}
+
+@media (max-width: 480px) {
+    #countdown div {
+        min-width: 50px;
+        padding: 8px;
+    }
+
+    #countdown span {
+        font-size: 14px;
+    }
+
+    #countdown p {
+        font-size: 10px;
+    }
+
+    .social a {
+        color: white;
+    }
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* space between fixed and flipping logo */
+}
+
+.logo-fixed {
+    border-radius: 0%;
+    /* keep it circular */
+}
+
+/* Flip container */
+.flip-container {
+    perspective: 1000px;
+    width: 100px;
+    height: 100px;
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.flipper img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    /* make circular for mobile */
+}
+
+.flipper .back {
+    transform: rotateY(180deg);
+}
+
+sup {
+    text-transform: lowercase;
 }

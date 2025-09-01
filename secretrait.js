@@ -225,56 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
-
-// Countdown timer (static for demo)
-function updateCountdown() {
-    const countdownNumbers = document.querySelectorAll('.countdown-number');
-
-    // For demo purposes, we'll keep the static values
-    // In a real implementation, you would calculate the actual time difference
-    countdownNumbers[0].textContent = '12';
-    countdownNumbers[1].textContent = '05';
-    countdownNumbers[2].textContent = '30';
-}
-
-// Initialize countdown
-document.addEventListener('DOMContentLoaded', function () {
-    updateCountdown();
-    // Update every second (for demo purposes)
-    setInterval(updateCountdown, 1000);
-});
-const cards = document.querySelectorAll(".who-for-card");
-let currentIndex = 1; // start with 2nd card as active
-
-function updateCards() {
-    cards.forEach((card, index) => {
-        card.classList.remove("prev", "active", "next");
-
-        if (index === currentIndex) {
-            card.classList.add("active");
-        } else if (index === currentIndex - 1) {
-            card.classList.add("prev");
-        } else if (index === currentIndex + 1) {
-            card.classList.add("next");
-        }
-    });
-}
-
-// Buttons
-document.getElementById("nextBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCards();
-});
-
-document.getElementById("prevBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCards();
-});
-
-// Init
-updateCards();
-
-
+// ✅ Real countdown
 const targetDate = new Date("October 10, 2025 00:00:00").getTime();
 
 function updateCountdown() {
@@ -282,34 +233,21 @@ function updateCountdown() {
     const distance = targetDate - now;
 
     if (distance < 0) {
-        document.querySelector(".countdown-timer").innerHTML =
+        document.getElementById("countdown").innerHTML =
             "<h3>Registration Closed</h3>";
         return;
     }
 
-    // Time calculations
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Update DOM
     document.getElementById("days").textContent = days;
     document.getElementById("hours").textContent = String(hours).padStart(2, "0");
     document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 }
 
-// Update immediately + every second
 updateCountdown();
 setInterval(updateCountdown, 1000);
-
-const flipper = document.querySelector('.flipper');
-let flipped = false;
-
-setInterval(() => {
-    flipped = !flipped;
-    flipper.style.transform = flipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}, 2000);

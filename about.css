@@ -50,7 +50,8 @@ h6 {
 .btn {
     display: inline-block;
     padding: 12px 30px;
-    border-radius: 4rem;
+    border: none;
+    border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
@@ -59,21 +60,6 @@ h6 {
     transition: all 0.3s ease;
     text-decoration: none;
     text-align: center;
-    color: white;
-}
-
-.btn:hover {
-    color: black;
-}
-
-.card-buttons button:hover {
-    background-color: white;
-}
-
-.card-buttons button {
-    border-radius: 25px;
-    border-color: white;
-    background-color: transparent;
 }
 
 .btn-primary {
@@ -734,178 +720,288 @@ footer {
 }
 
 
-.card {
+/* About Us Section */
+.card-About-Us {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    border-radius: 60px;
-    margin: 8vh auto;
-    padding: 8rem 4rem;
+    border-radius: 80px;
+    margin: 13vh;
+    padding: 15rem;
     position: relative;
-    min-height: 60vh;
+    height: auto;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     font-family: 'Syne', sans-serif;
     color: white;
-    max-width: 1200px;
-    gap: 2rem;
 }
 
-/* Left + Right containers */
-.card-left,
-.card-right {
-    flex: 1;
-    max-width: 50%;
-    z-index: 2;
-}
-
-.card-left {
-    text-align: left;
-    margin-right: auto;
-}
-
-.card-right {
+.card-About-right {
+    max-width: 45%;
     text-align: right;
-    margin-left: auto;
+    z-index: 2;
+    word-wrap: break-word;
+    /* ensures long words break */
+    overflow-wrap: break-word;
+    /* modern version */
+    white-space: normal;
 }
 
-/* Headings & Text */
-.card h2 {
+.card-About-right h1 {
     font-weight: 800;
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: 3vh;
+    /* Adjust as needed, try 8–10vh for huge text */
     margin-bottom: 1rem;
+    line-height: 2;
 }
 
-.agenda-title {
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
-    font-weight: 700;
-    margin: 1.5rem 0 1rem;
-    color: #2f00ff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+.card-About-right p {
+    font-size: 1.4rem;
+    /* Make paragraph bigger */
+    line-height: 1.8rem;
+    /* Improve readability */
 }
 
-.agenda-text {
-    font-size: clamp(0.5rem, 1.0vw, 1.0rem);
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-/* Buttons inside cards */
 .card-buttons {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-top: 2rem;
+    justify-content: flex-end
+}
+
+.btn {
+    padding: 12px 22px;
+    border: 2px solid white;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    transition: background 0.3s, color 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: white;
+    color: black;
+}
+
+.card-left {
+    text-align: left;
+    margin-right: auto;
+    max-width: 45%;
+    z-index: 2;
+
 }
 
 .card-left .card-buttons {
     justify-content: flex-start;
 }
 
-.card-right .card-buttons {
-    justify-content: flex-end;
-}
-
-/* Card-specific alignment */
-#card1 .card-right {
-    text-align: right;
-}
-
-#card2 .card-left {
-    text-align: left;
-}
-
-#card3 .card-right {
-    text-align: right;
-}
-
-/* Tablet (<= 1024px) */
-@media (max-width: 1024px) {
-    .card {
-        margin-top: 20vh;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 4rem 2rem;
-        margin: 4vh 1rem;
-        border-radius: 40px;
-    }
-
-    .card-left,
-    .card-right {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .card h2 {
-        font-size: 2.5rem;
-    }
-
-    .agenda-title {
-        font-size: 1.5rem;
-    }
-
-    .agenda-text {
-        font-size: 0.8rem;
-    }
-
-    .card-buttons {
-        justify-content: center;
-    }
-}
-
-/* Mobile (<= 768px) */
 @media (max-width: 768px) {
-    .card {
-        margin-top: 20vh;
-        padding: 2.5rem 1.5rem;
-        border-radius: 25px;
+    .card-About-right h1 {
+        font-size: 5vh;
     }
 
-    .card h2 {
+    .card-About-right p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+
+/* Contact us  */
+
+.contact {
+    padding: 6rem 0;
+    background: #000000;
+}
+
+.outer {
+    background-color: #1A1A1A;
+    padding: 4rem;
+    border-radius: 50px;
+}
+
+.outer h3 {
+    margin-bottom: 2rem;
+
+}
+
+.contact-card {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    background: #000000;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0);
+}
+
+#location {
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 60vh;
+    border-radius: 50px;
+}
+
+.contact-image {
+    background: linear-gradient(135deg, #1A1A1A 0%, #1A1A1A 100%);
+    border-radius: 50px;
+    width: 100%;
+    padding: 2rem;
+    font-family: 'Syne';
+    font-weight: 600;
+    font-size: x-large;
+}
+
+.contact-form button {
+    background-color: #0057FF;
+    padding: 1rem;
+    border-radius: 30px;
+    font-family: 'Syne';
+    font-weight: 500;
+    color: white;
+    text-align: center;
+    justify-content: center;
+    margin-left: 45%;
+}
+
+@media (max-width:768px) {
+    .contact-form button {
+        margin-left: 25%;
+    }
+}
+
+.contact-image p {
+    font-size: 2vh;
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+.contact-bg {
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.contact-form {
+    padding: 3rem;
+}
+
+.contact-form h2 {
+    color: #0057FF;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #0057FF;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #A9A9B8;
+}
+
+.about-section {
+    padding: 80px 20px;
+    gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    /* fallback background */
+    color: #fff;
+}
+
+.about-card {
+    margin-top: 09vh;
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('Group 33.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    max-width: 1100px;
+    padding: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-8px);
+}
+
+.about-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #c20000;
+    /* Accent heading */
+}
+
+.about-content p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.about-buttons {
+    margin-top: 25px;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #ff4444;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.about-btn:hover {
+    background: #e63636;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-card {
+        padding: 30px;
+    }
+
+    .about-content h1 {
         font-size: 2rem;
     }
 
-    .agenda-title {
-        font-size: 1.25rem;
-        text-decoration: overline;
-        text-decoration-color: white;
-    }
-
-    .agenda-text {
-        font-size: 0.75rem;
-    }
-
-    .card-buttons {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .card-buttons .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-/* Small Mobile (<= 480px) */
-@media (max-width: 480px) {
-    .card {
-        padding: 2rem 1rem;
-        margin: 2vh 0.5rem;
-    }
-
-    .card h2 {
-        font-size: 1.6rem;
-    }
-
-    .agenda-title {
-        font-size: 1.1rem;
-    }
-
-    .agenda-text {
-        font-size: 0.85rem;
+    .about-content p {
+        font-size: 0.95rem;
     }
 }
