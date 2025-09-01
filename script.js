@@ -1,27 +1,28 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize all functionality
     initNavigation();
     initTabs();
     initScrollEffects();
     initMobileMenu();
     initSmoothScrolling();
+    initForm();
+    initButtons();
+    initHoverEffects();
+    initCarousel();
+    initCountdown();
 });
 
 // Navigation functionality
 function initNavigation() {
     const header = document.getElementById('header');
+    if (!header) return;
 
     window.addEventListener('scroll', function () {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        header.classList.toggle('scrolled', window.scrollY > 100);
     });
 }
 
-// Tab switching functionality
+// Tab switching
 function initTabs() {
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -30,172 +31,213 @@ function initTabs() {
         button.addEventListener('click', function () {
             const targetTab = this.getAttribute('data-tab');
 
-            // Remove active class from all buttons and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
 
-            // Add active class to clicked button and corresponding content
             this.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
+            const target = document.getElementById(targetTab);
+            if (target) target.classList.add('active');
         });
     });
 }
 
-// Mobile menu functionality
+// Mobile menu
 function initMobileMenu() {
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    if (!navToggle || !navMenu) return;
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
+    navToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+        const icon = this.querySelector('i');
+        if (!icon) return;
 
-            // Change icon based on menu state
-            const icon = this.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
+        if (navMenu.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function () {
+            navMenu.classList.remove('active');
+            const icon = navToggle.querySelector('i');
+            if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
         });
-
-        // Close menu when clicking on a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function () {
-                navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            });
-        });
-    }
+    });
 }
 
-// Smooth scrolling for navigation links
+// Smooth scrolling
 function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', function (e) {
-            e.preventDefault();
-
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
+            if (!targetSection) return;
 
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+            e.preventDefault();
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
+            const targetPosition = targetSection.offsetTop - headerHeight;
 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 }
 
 // Scroll animations
 function initScrollEffects() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function (entries) {
+    const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    // Observe elements for scroll animations
-    const animateElements = document.querySelectorAll('.feature-card, .secretariat-card, .pricing-card, .info-card');
-    animateElements.forEach(el => {
-        el.classList.add('scroll-animate');
-        observer.observe(el);
-    });
+    document.querySelectorAll('.feature-card, .secretariat-card, .pricing-card, .info-card')
+        .forEach(el => {
+            el.classList.add('scroll-animate');
+            observer.observe(el);
+        });
 }
 
 // Form handling
-document.addEventListener('DOMContentLoaded', function () {
+function initForm() {
     const contactForm = document.querySelector('.contact-form form');
+    if (!contactForm) return;
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = this.querySelector('input[type="text"]').value.trim();
+        const email = this.querySelector('input[type="email"]').value.trim();
+        const message = this.querySelector('textarea').value.trim();
 
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const message = this.querySelector('textarea').value;
+        if (!name || !email || !message) {
+            alert('Please fill in all fields');
+            return;
+        }
 
-            // Basic validation
-            if (!name || !email || !message) {
-                alert('Please fill in all fields');
-                return;
-            }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
 
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
 
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-});
+        setTimeout(() => {
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+}
 
 // Button click handlers
-document.addEventListener('DOMContentLoaded', function () {
-    // Register buttons
-    const registerButtons = document.querySelectorAll('.btn-primary');
-    registerButtons.forEach(button => {
+function initButtons() {
+    document.querySelectorAll('.btn-primary').forEach(button => {
         button.addEventListener('click', function () {
-            // Scroll to registration section
             const registerSection = document.getElementById('register');
             if (registerSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
+                const headerHeight = document.querySelector('.header')?.offsetHeight || 0;
                 const targetPosition = registerSection.offsetTop - headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
     });
 
-    // Download brochure button
     const downloadBtn = document.querySelector('.btn-secondary');
     if (downloadBtn) {
-        downloadBtn.addEventListener('click', function () {
+        downloadBtn.addEventListener('click', () => {
             alert('Brochure download will be available soon!');
         });
     }
-});
+}
 
-// Add loading animation
+// Hover effects
+function initHoverEffects() {
+    document.querySelectorAll('.feature-card, .secretariat-card, .pricing-card').forEach(card => {
+        card.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        card.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+}
+
+// Carousel for "who-for-card"
+function initCarousel() {
+    const cards = document.querySelectorAll(".who-for-card");
+    if (!cards.length) return;
+
+    let currentIndex = 1; // start at 2nd card
+
+    function updateCards() {
+        cards.forEach((card, index) => {
+            card.classList.remove("prev", "active", "next");
+            if (index === currentIndex) card.classList.add("active");
+            else if (index === currentIndex - 1) card.classList.add("prev");
+            else if (index === currentIndex + 1) card.classList.add("next");
+        });
+    }
+
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    if (nextBtn) nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % cards.length;
+        updateCards();
+    });
+    if (prevBtn) prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        updateCards();
+    });
+
+    updateCards();
+}
+
+// Countdown timer
+function initCountdown() {
+    const targetDate = new Date("October 10, 2025 00:00:00").getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+
+        if (distance < 0) {
+            const countdown = document.getElementById("countdown");
+            if (countdown) countdown.innerHTML = "<h3>Registration Closed</h3>";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = String(hours).padStart(2, "0");
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+}
+
+// Loading animation
 window.addEventListener('load', function () {
     document.body.classList.add('loaded');
 });
@@ -204,112 +246,8 @@ window.addEventListener('load', function () {
 window.addEventListener('scroll', function () {
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
-
     if (hero) {
         const rate = scrolled * -0.5;
         hero.style.transform = `translateY(${rate}px)`;
     }
 });
-
-// Add hover effects for cards
-document.addEventListener('DOMContentLoaded', function () {
-    const cards = document.querySelectorAll('.feature-card, .secretariat-card, .pricing-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function () {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-
-        card.addEventListener('mouseleave', function () {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-});
-
-// Countdown timer (static for demo)
-function updateCountdown() {
-    const countdownNumbers = document.querySelectorAll('.countdown-number');
-
-    // For demo purposes, we'll keep the static values
-    // In a real implementation, you would calculate the actual time difference
-    countdownNumbers[0].textContent = '12';
-    countdownNumbers[1].textContent = '05';
-    countdownNumbers[2].textContent = '30';
-}
-
-// Initialize countdown
-document.addEventListener('DOMContentLoaded', function () {
-    updateCountdown();
-    // Update every second (for demo purposes)
-    setInterval(updateCountdown, 1000);
-});
-const cards = document.querySelectorAll(".who-for-card");
-let currentIndex = 1; // start with 2nd card as active
-
-function updateCards() {
-    cards.forEach((card, index) => {
-        card.classList.remove("prev", "active", "next");
-
-        if (index === currentIndex) {
-            card.classList.add("active");
-        } else if (index === currentIndex - 1) {
-            card.classList.add("prev");
-        } else if (index === currentIndex + 1) {
-            card.classList.add("next");
-        }
-    });
-}
-
-// Buttons
-document.getElementById("nextBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % cards.length;
-    updateCards();
-});
-
-document.getElementById("prevBtn").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-    updateCards();
-});
-
-// Init
-updateCards();
-
-
-const targetDate = new Date("October 10, 2025 00:00:00").getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance < 0) {
-        document.querySelector(".countdown-timer").innerHTML =
-            "<h3>Registration Closed</h3>";
-        return;
-    }
-
-    // Time calculations
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Update DOM
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
-    document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
-    document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
-}
-
-// Update immediately + every second
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-const flipper = document.querySelector('.flipper');
-let flipped = false;
-
-setInterval(() => {
-    flipped = !flipped;
-    flipper.style.transform = flipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-}, 2000);

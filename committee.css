@@ -739,8 +739,8 @@ footer {
     justify-content: space-between;
     align-items: center;
     border-radius: 60px;
-    margin: 8vh auto;
-    padding: 8rem 4rem;
+    margin: 2vh auto;
+    padding: 9.5rem;
     position: relative;
     min-height: 60vh;
     background-size: cover;
@@ -748,7 +748,6 @@ footer {
     background-repeat: no-repeat;
     font-family: 'Syne', sans-serif;
     color: white;
-    max-width: 1200px;
     gap: 2rem;
 }
 
@@ -811,6 +810,25 @@ footer {
 /* Card-specific alignment */
 #card1 .card-right {
     text-align: right;
+
+}
+
+#card1 {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    margin-top: 16vh;
+}
+
+#card2 {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    margin-top: 16vh;
+}
+
+#card3 {
+    margin-right: 5rem;
+    margin-left: 5rem;
+    margin-top: 16vh;
 }
 
 #card2 .card-left {

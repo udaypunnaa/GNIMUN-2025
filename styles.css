@@ -939,6 +939,10 @@ h6 {
     transition: all 0.3s ease;
 }
 
+.pricing-card-featured {
+    background-color: #1c1c1c;
+}
+
 .prev {
     background-color: #0057FF;
 }
