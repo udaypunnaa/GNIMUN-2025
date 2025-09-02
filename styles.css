@@ -1728,6 +1728,21 @@ footer {
     /* keep it circular */
 }
 
+.download-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #0056b3;
+}
+
 /* Flip container */
 .flip-container {
     perspective: 1000px;
