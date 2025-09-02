@@ -129,7 +129,7 @@ h6 {
     margin: 1rem;
     padding: 0.1rem;
     background-color: #000000;
-    border-radius: 10rem;
+    border-radius: 5rem;
 }
 
 .nav-container {
@@ -160,7 +160,7 @@ h6 {
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
     text-align: center;
 }
 
@@ -201,170 +201,159 @@ h6 {
     cursor: pointer;
 }
 
-/* Hero Section */
+/* Mobile Navbar Fix */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+
+    .nav-logo img {
+        height: 40px;
+        /* logos a bit bigger */
+        max-height: 40px;
+    }
+
+    .nav-logo img:last-child {
+        height: 90px;
+        /* center logo bigger */
+        max-height: 90px;
+    }
+
+    .nav-menu {
+        display: none;
+        /* hide menu by default */
+        flex-direction: column;
+        gap: 1rem;
+        background: #000;
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        /* show when toggle clicked */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+        /* show toggle button */
+        font-size: 1.5rem;
+        /* smaller toggle button */
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
 .hero {
-    margin-top: 15vh;
-    position: relative;
+    height: 100vh;
+    /* Always full screen */
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* center horizontally */
-    align-items: center;
-    /* center vertically */
-    padding: 50px 20px;
-    min-height: 120vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('assets/background1.png');
-    background-size: cover;
-    background-position: center;
+    /* Horizontal center */
+    align-items: flex-start;
+    /* Align items from top */
+    text-align: center;
+    padding: 5px;
+    margin-top: 18vh;
+    /* Only top margin */
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url('assets/background1.png') center/cover no-repeat;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
-
+    overflow: hidden;
+    /* Prevent accidental overflow */
 }
 
-/* move the whole content slightly up without breaking centering */
+/* Hero Content */
 .hero-content {
-    margin-top: -20vh;
     max-width: 900px;
-    text-align: center;
-    transform: translateY(-8vh);
-    /* <-- change this value to move all content up/down */
-}
-
-/* logo styling: centered, smaller, and easily nudged */
-.hero-logo {
-    margin-top: -vh;
-    width: 500px;
-    /* reasonable default; change as needed */
-    height: auto;
-    display: block;
-    margin: 0 auto 12px;
-    margin-bottom: 0px;
-    top: -50px;
-    /* small upward nudge for the logo only */
-    position: relative;
-    /* required for transform/top adjustments to take effect */
-}
-
-/* text sizes */
-.hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    /* always fill screen */
-    text-align: center;
-    padding: 0 5%;
-}
-
-/* Small heading */
-.hero-content h5 {
-    font-size: clamp(12px, 2vw, 18px);
-    margin: 0 0 10px 0;
-    color: #fff;
-    letter-spacing: 0.5px;
-}
-
-#texts {
-    margin-top: -15.5vh;
-}
-
-/* Main heading */
-.hero-content h1 {
-    font-family: 'Syne';
-    font-weight: 700;
-    font-size: clamp(32px, 8vw, 80px);
-    /* scales with screen */
-    margin: 6px 0 10px 0;
-    color: #fff;
-}
-
-/* Subheading */
-.hero-content h2 {
-    font-size: clamp(14px, 2.5vw, 20px);
-    line-height: 1.5;
-    margin: 0 0 18px 0;
-    color: #fff;
-}
-
-/* Extra small devices adjustments */
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: clamp(28px, 9vw, 60px);
-    }
-
-    .hero-content h2 {
-        font-size: clamp(12px, 3vw, 18px);
-    }
-}
-
-/* responsive tweaks */
-@media (max-width: 768px) {
-    .hero-content {
-        transform: translateY(-4vh);
-    }
-
-    .hero-logo {
-        width: 250px;
-        transform: translateY(-10px);
-        margin-top: -20px;
-    }
-
-    .hero-content h1 {
-        font-size: 14vw;
-    }
-
-    /* scales down neatly on phones */
-}
-
-
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+    gap: 1rem;
+    z-index: 2;
+    /* ensure above background */
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 87, 255, 0.1) 0%, rgba(10, 10, 20, 0.8) 100%);
+    transform: translateY(-5vh);
+    /* Move all content slightly up */
+}
+
+/* Responsive Logo */
+.hero-logo {
+    width: clamp(150px, 28vw, 300px);
+    height: auto;
+    margin: 0 auto 0rem;
+    /* top=0, right/left auto, bottom=0.5rem */
+    display: block;
+}
+
+
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* horizontally center */
+    align-items: center;
+    /* vertically center */
+    text-align: center;
+    padding: 0 0rem;
+    position: relative;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    transform: translateY(-9vh);
+    /* moves content upward */
 }
 
+/* Headings */
+.hero-content h5 {
+    font-size: clamp(12px, 1.5vw, 16px);
+    /* smaller than before */
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 5vw, 60px);
+    /* reduced from 36-80px */
+    color: #fff;
+    margin: 0.4rem 0;
+    /* slightly tighter spacing */
+}
+
+.hero-content h2 {
+    font-size: clamp(14px, 2vw, 20px);
+    /* reduced from 16-24px */
+    color: #fff;
+    margin: 0;
+}
+
+/* Register Button */
 #register-here {
-    outline: 0;
     margin-top: 1.5rem;
     border-radius: 50px;
     color: white;
-    align-items: center;
-    background: 0 0;
+    background: transparent;
     border: 1px solid #2e1cd6;
+    padding: 12px 20px;
+    font-size: clamp(14px, 2vw, 18px);
     cursor: pointer;
-    display: inline-flex;
-    flex-shrink: 0;
-    font-size: 16px;
-    gap: 8px;
-    justify-content: center;
-    line-height: 1.5;
-    overflow: hidden;
-    padding: 12px 16px;
-    text-decoration: none;
-    text-overflow: ellipsis;
     transition: all .14s ease-out;
-    white-space: nowrap;
-
 }
 
 #register-here:hover {
@@ -372,24 +361,29 @@ h6 {
     transform: translate(-4px, -4px);
 }
 
-#register-here:focus-visible {
-    outline-offset: 1px;
-}
+/* Mobile Tweaks */
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 12vh;
+        /* slightly reduce top margin on small screens */
+    }
 
-.hero-title {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #FFFFFF 0%, #0057FF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
+    .hero-content {
+        transform: translateY(-3vh);
+        /* smaller upward shift */
+    }
 
-.hero-tagline {
-    font-size: 1.2rem;
-    color: #A9A9B8;
-    margin-bottom: 2rem;
-    letter-spacing: 2px;
+    .hero-logo {
+        width: clamp(200px, 35vw, 250px);
+    }
+
+    .hero-content h1 {
+        font-size: clamp(28px, 9vw, 60px);
+    }
+
+    .hero-content h2 {
+        font-size: clamp(14px, 4vw, 18px);
+    }
 }
 
 /* Quick Info Cards */

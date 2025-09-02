@@ -191,6 +191,70 @@ h6 {
     cursor: pointer;
 }
 
+/* Mobile Navbar Fix */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+
+    .nav-logo img {
+        height: 40px;
+        /* logos a bit bigger */
+        max-height: 40px;
+    }
+
+    .nav-logo img:last-child {
+        height: 90px;
+        /* center logo bigger */
+        max-height: 90px;
+    }
+
+    .nav-menu {
+        display: none;
+        /* hide menu by default */
+        flex-direction: column;
+        gap: 1rem;
+        background: #000;
+        position: absolute;
+        top: 70px;
+        right: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        /* show when toggle clicked */
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-toggle {
+        display: block;
+        /* show toggle button */
+        font-size: 1.5rem;
+        /* smaller toggle button */
+        color: #fff;
+        cursor: pointer;
+    }
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    /* space between fixed and flipping logo */
+}
+
+.logo-fixed {
+    border-radius: 0%;
+    /* keep it circular */
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -722,6 +786,7 @@ footer {
 
 /* About Us Section */
 .card-About-Us {
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -815,8 +880,9 @@ footer {
 /* Contact us  */
 
 .contact {
-    padding: 6rem 0;
+    padding: 5rem 0;
     background: #000000;
+
 }
 
 .outer {
@@ -928,27 +994,33 @@ footer {
 }
 
 .about-section {
-    padding: 80px 20px;
-    gap: 7px;
     display: flex;
+    gap: 2rem;
+    /* space between the two cards */
     justify-content: center;
-    align-items: center;
-    background: #111;
-    /* fallback background */
-    color: #fff;
+    align-items: stretch;
+    /* stretch cards to equal height */
+    flex-wrap: wrap;
+    /* allows stacking on smaller screens */
+    margin-top: 15vh;
 }
 
 .about-card {
-    margin-top: 09vh;
-
+    flex: 1;
+    /* make both cards take equal width */
+    min-width: 300px;
+    /* prevents cards from shrinking too small */
     background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('Group 33.png');
     background-size: cover;
     background-position: center;
     border-radius: 20px;
-    max-width: 1100px;
     padding: 50px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    /* keeps internal content structured */
+    justify-content: space-between;
 }
 
 .about-card:hover {
@@ -1005,3 +1077,5 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+/* Mobile Navbar Fix */
