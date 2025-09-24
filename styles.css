@@ -1794,6 +1794,10 @@ sup {
     color: #000000;
 }
 
+#sponsor-logo-1 {
+    width: 350px;
+}
+
 .sponsors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
