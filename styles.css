@@ -1791,7 +1791,7 @@ sup {
     font-size: 2rem;
     margin-bottom: 40px;
     font-weight: 800;
-    color: #222;
+    color: #000000;
 }
 
 .sponsors-grid {
@@ -1823,6 +1823,7 @@ sup {
     height: auto;
     margin-bottom: 15px;
     object-fit: contain;
+    border-radius: 20px;
 }
 
 .sponsor-card h3 {
